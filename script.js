@@ -61,6 +61,7 @@ const closeMenu = () => {
 
 
 if (menuToggle && siteNav) {
+  document.documentElement.classList.add("nav-ready");
 
   menuToggle.addEventListener(
     "click",
@@ -97,6 +98,8 @@ if (menuToggle && siteNav) {
       () => {
 
         closeMenu();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) { target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true }); }
 
       }
     );
@@ -158,6 +161,9 @@ const setActiveNav = () => {
       link.getAttribute("href") ===
       `#${current}`;
 
+    if (isActive) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+
     link.classList.toggle(
       "active",
       isActive
@@ -214,7 +220,7 @@ if (
 
       },
       {
-        threshold: 0.12
+        threshold: 0
       }
     );
 

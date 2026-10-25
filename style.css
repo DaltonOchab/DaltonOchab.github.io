@@ -924,10 +924,9 @@ li + li {
 
 .reveal {
 
-  opacity: 0;
+  opacity: 1;
 
-  transform:
-    translateY(18px);
+  transform: none;
 
   transition:
     opacity .65s ease,
@@ -1295,4 +1294,24 @@ li + li {
 
   }
 
+}
+
+/* Comfortable link targets and a polished portrait frame. */
+.hero-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; }
+.hero-links a:first-child { background: var(--accent); border-color: var(--accent); color: white; }
+.hero-links { gap: 10px; }
+.hero-photo { border-radius: 12px; box-shadow: 14px 14px 0 #e8ece5; }
+.hero-photo img { object-position: center 25%; }
+@media (min-width: 651px) and (max-width: 1000px) {
+  .nav-wrap { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 16px 0; }
+  .site-nav { flex-wrap: wrap; justify-content: center; gap: 18px; }
+  html { scroll-padding-top: 130px; }
+}
+@media (max-width: 650px) {
+  .site-nav { position: static; display: flex; padding: 0; border: 0; width: 100%; }
+  .nav-wrap { flex-wrap: wrap; gap: 0; }
+  .menu-toggle { display: none; }
+  .nav-ready .menu-toggle { display: block; }
+  .nav-ready .site-nav { display: none; padding: 10px 0 18px; }
+  .nav-ready .site-nav.open { display: flex; }
 }
